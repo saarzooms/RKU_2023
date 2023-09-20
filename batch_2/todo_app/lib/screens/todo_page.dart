@@ -54,12 +54,29 @@ class _TodoPageState extends State<TodoPage> {
               ],
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: tskLst.length,
-                itemBuilder: (context, index) => CheckboxListTile(
-                  onChanged: (v) {},
-                  value: tskLst[index].completed,
-                  title: Text(tskLst[index].task ?? ""),
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  fetchAllTodos();
+                },
+                child: ListView.builder(
+                  itemCount: tskLst.length,
+                  itemBuilder: (context, index) => CheckboxListTile(
+                    onChanged: (v) async {
+                      await APICalls.updateTask(tskLst[index].id!, v!);
+                      fetchAllTodos();
+                    },
+                    value: tskLst[index].completed,
+                    title: Text(tskLst[index].task ?? ""),
+                    secondary: IconButton(
+                      onPressed: () async {
+                        //logic to delete task
+                        await APICalls.deleteTask(tskLst[index].id!);
+                        fetchAllTodos();
+                      },
+                      icon: Icon(Icons.delete),
+                    ),
+                    controlAffinity: ListTileControlAffinity.leading,
+                  ),
                 ),
               ),
             )

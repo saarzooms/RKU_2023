@@ -22,7 +22,7 @@ class TaskList {
   });
 
   factory TaskList.fromJson(Map<String, dynamic> json) => TaskList(
-        completed: json["completed"],
+        completed: json["completed"] ?? true,
         id: json["id"],
         task: json["task"],
       );

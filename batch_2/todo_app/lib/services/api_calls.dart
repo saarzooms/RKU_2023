@@ -33,6 +33,15 @@ class APICalls {
     }
   }
 
+  //to delete task
+  static deleteTask(int id) async {
+    http.Response response = await http
+        .delete(Uri.parse('https://node-todo-api-yjo3.onrender.com/todos/$id'));
+    if (response.statusCode == 200) {
+      print(response.body.toString());
+    }
+  }
+
   //to fetch all tasks
   static fetchTasks() async {
     List<TaskList> taskLst = [];
