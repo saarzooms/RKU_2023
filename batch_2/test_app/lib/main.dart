@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'calc_screen.dart';
 import 'col_row_test.dart';
 import 'counter_page.dart';
 import 'home_page.dart';
@@ -14,6 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: LoginPage());
+    return MaterialApp(home: CalcScreen());
   }
 }
