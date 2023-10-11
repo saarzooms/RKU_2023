@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "797412261478",
+    "project_id": "rku-fl-test",
+    "storage_bucket": "rku-fl-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797412261478:android:e7dc468f7ea122b79037a7",
+        "android_client_info": {
+          "package_name": "com.allysoftsolutions.rku_firebase_test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2c0NTwsH0KsWC-F8_rL7Hb9_Xjg7W6Ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
