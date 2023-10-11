@@ -9,16 +9,7 @@ class ListEmp extends StatefulWidget {
 }
 
 class _ListEmpState extends State<ListEmp> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    fetchEmployee();
-  }
-
-  fetchEmployee() {
-    FireOperations.fetchEmployee();
-  }
+  //to get stream object
 
   @override
   Widget build(BuildContext context) {
@@ -27,17 +18,19 @@ class _ListEmpState extends State<ListEmp> {
       itemCount: 5,
       itemBuilder: (context, index) {
         return ListTile(
+          onTap: () {
+            //
+          },
           title: Text('Name'),
           subtitle: Text('Contact no'),
+          trailing: IconButton(
+            onPressed: () {
+              //logic to remove
+            },
+            icon: Icon(Icons.remove),
+          ),
         );
       },
-    )
-        //  ElevatedButton(
-        //   onPressed: () {
-        //     FireOperations.fetchEmployee();
-        //   },
-        //   child: Text('Fetch Data'),
-        // ),
-        );
+    ));
   }
 }

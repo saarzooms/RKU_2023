@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../models/employee_model.dart';
 import '../services/fire_operations.dart';
 import 'list_emp.dart';
 
@@ -52,12 +53,20 @@ class _AddEmpState extends State<AddEmp> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
-                  FireOperations.addEmployee(
-                    name.text,
-                    contact.text,
-                    position.text,
+                onPressed: () async {
+                  var response = await FireOperations.addEmployee(
+                    Employee(
+                        employeeName: name.text,
+                        contactNo: contact.text,
+                        position: position.text),
                   );
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Text(response),
+                        );
+                      });
                 },
                 child: Text('Add'),
               ),

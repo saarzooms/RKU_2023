@@ -12,13 +12,13 @@ class Employee {
   String employeeName;
   String contactNo;
   String position;
-  String id;
+  String? id;
 
   Employee({
     required this.employeeName,
     required this.contactNo,
     required this.position,
-    required this.id,
+    this.id,
   });
 
   factory Employee.fromJson(Map<String, dynamic> json) => Employee(
