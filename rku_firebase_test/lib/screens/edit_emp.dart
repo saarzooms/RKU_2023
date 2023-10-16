@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/employee_model.dart';
+import '../services/fire_operations.dart';
 import 'list_emp.dart';
 
 class EditEmp extends StatefulWidget {
@@ -107,8 +108,13 @@ class _EditEmp extends State<EditEmp> {
         padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () async {
           if (_formKey.currentState!.validate()) {
-            var response = '';
+            var response = await FireOperations.updateEmp(Employee(
+                employeeName: _employee_name.text,
+                contactNo: _employee_contact.text,
+                position: _employee_position.text,
+                id: _docid.text));
             // call update
+
             showDialog(
                 context: context,
                 builder: (context) {
@@ -129,7 +135,7 @@ class _EditEmp extends State<EditEmp> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text('FreeCode Spot'),
+        title: const Text('Edit'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Column(
